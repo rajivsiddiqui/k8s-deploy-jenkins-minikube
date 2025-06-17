@@ -3,22 +3,10 @@ pipeline {
     environment {
         PATH = "/opt/maven/bin:$PATH"
         DOCKERHUB_CREDENTIALS = credentials('docker-hub-credential')
-        //KUBECONFIG = credentials('kubeconfig-cred')
-        //KUBECONFIG = "${WORKSPACE}/kubeconfig"
-        //KUBECONFIG = "/var/lib/jenkins/kubeconfig"
-        KUBECONFIG = "/var/lib/jenkins/minikube-jenkins/config"
-        MINIKUBE_HOME = "/var/lib/jenkins/minikube-jenkins/.minikube"
-    } 
+    }
     stages {
-        // stage('git_clone') {
-        //     steps {
-        //         git branch: 'main', url: 'https://github.com/rajivsiddiqui/java-project-1.git'
-        //     }
-        // }
-        //build stage 
         stage('build') {
             steps {
-                //sh 'mvn clean deploy -Dmaven.test.skip=true'  //-Dmaven.test.skip=true
                 sh 'mvn clean install'
             }
         }
@@ -35,20 +23,9 @@ pipeline {
                 sh 'docker push devopssteps/java-1:latest'
             }
         }
-        // stage('Prepare kubeconfig') {
-        //     steps {
-        //         sh '''
-        //         cp /home/rajiv/.kube/config $KUBECONFIG
-        //         chmod 600 $KUBECONFIG
-        //         # Update paths inside the config to match workspace
-        //         sed -i 's|/home/rajiv/.minikube|'"$WORKSPACE"'/minikube|g' $KUBECONFIG
-        //         cp -r /home/rajiv/.minikube $WORKSPACE/minikube
-        //         '''
-        //     }
-        // }
+        //debug kubectl working or not
         stage('Debug kubectl') {
             steps {
-                //sh 'kubectl config view'
                 sh 'kubectl get nodes'
             }
         }
