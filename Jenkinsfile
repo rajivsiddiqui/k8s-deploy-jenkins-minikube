@@ -3,6 +3,8 @@ pipeline {
     environment {
         PATH = "/opt/maven/bin:$PATH"
         DOCKERHUB_CREDENTIALS = credentials('docker-hub-credential')
+        KUBECONFIG = "/var/lib/jenkins/kube-minikube/config"
+        MINIKUBE_HOME = "/var/lib/jenkins/kube-minikube/.minikube"
     }
     stages {
         stage('build') {
