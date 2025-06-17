@@ -6,8 +6,8 @@ pipeline {
         //KUBECONFIG = credentials('kubeconfig-cred')
         //KUBECONFIG = "${WORKSPACE}/kubeconfig"
         //KUBECONFIG = "/var/lib/jenkins/kubeconfig"
-        // KUBECONFIG = "/var/lib/jenkins/kube-minikube/config"
-        // MINIKUBE_HOME = "/var/lib/jenkins/kube-minikube/.minikube"
+        KUBECONFIG = "/var/lib/jenkins/minikube-jenkins/config"
+        MINIKUBE_HOME = "/var/lib/jenkins/minikube-jenkins/.minikube"
     } 
     stages {
         // stage('git_clone') {
