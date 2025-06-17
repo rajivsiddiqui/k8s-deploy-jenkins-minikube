@@ -6,15 +6,15 @@ pipeline {
         //KUBECONFIG = credentials('kubeconfig-cred')
         //KUBECONFIG = "${WORKSPACE}/kubeconfig"
         //KUBECONFIG = "/var/lib/jenkins/kubeconfig"
-        KUBECONFIG = "/var/lib/jenkins/kube-minikube/config"
-        MINIKUBE_HOME = "/var/lib/jenkins/kube-minikube/.minikube"
+        // KUBECONFIG = "/var/lib/jenkins/kube-minikube/config"
+        // MINIKUBE_HOME = "/var/lib/jenkins/kube-minikube/.minikube"
     } 
     stages {
-        stage('git_clone') {
-            steps {
-                git branch: 'main', url: 'https://github.com/rajivsiddiqui/java-project-1.git'
-            }
-        }
+        // stage('git_clone') {
+        //     steps {
+        //         git branch: 'main', url: 'https://github.com/rajivsiddiqui/java-project-1.git'
+        //     }
+        // }
         //build stage 
         stage('build') {
             steps {
